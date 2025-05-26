@@ -1,0 +1,63 @@
+# 核心深度学习框架
+torch>=2.0.0
+torchvision>=0.15.0
+ultralytics>=8.0.0
+
+# ONNX 运行时和硬件支持
+onnxruntime>=1.16.0
+onnxruntime-gpu>=1.16.0  # NVIDIA GPU 支持
+onnx>=1.14.0
+
+# 图像处理和计算机视觉
+opencv-python>=4.8.0
+Pillow>=10.0.0
+albumentations>=1.3.0
+
+# 数据处理和分析
+numpy>=1.24.0
+pandas>=2.0.0
+scipy>=1.11.0
+
+# 配置管理
+pyyaml>=6.0
+omegaconf>=2.3.0
+
+# 可视化
+matplotlib>=3.7.0
+seaborn>=0.12.0
+plotly>=5.15.0
+
+# 进度条和日志
+tqdm>=4.65.0
+loguru>=0.7.0
+
+# 硬件检测
+gpustat>=1.1.0
+psutil>=5.9.0
+py3nvml>=0.2.7
+
+# Web 框架 (用于部署 API)
+fastapi>=0.100.0
+uvicorn>=0.23.0
+pydantic>=2.0.0
+
+# 模型服务和部署
+gradio>=3.40.0  # 可选：用于快速原型演示
+
+# 测试
+pytest>=7.4.0
+pytest-cov>=4.1.0
+
+# 开发工具
+black>=23.0.0
+flake8>=6.0.0
+isort>=5.12.0
+
+# Intel OpenVINO 支持 (可选)
+# openvino>=2023.1.0
+
+# AMD ROCm 支持 (可选，需要特殊安装)
+# 请参考 AMD ROCm 官方文档进行安装
+
+# 算能 AI 芯片支持 (可选，需要特殊安装)
+# 请参考算能官方文档进行 SDK 安装

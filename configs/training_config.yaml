@@ -1,0 +1,33 @@
+# 火点检测系统 - 训练配置文件
+# 模型配置
+model_name: yolov8n
+input_size: 640
+num_classes: 1
+class_names:
+  - fire
+
+# 训练参数
+epochs: 100
+batch_size: 16
+learning_rate: 0.01
+weight_decay: 0.0005
+momentum: 0.937
+
+# 数据配置
+data_path: datasets/fire_detection
+train_split: 0.8
+val_split: 0.1
+test_split: 0.1
+
+# 增强配置
+augmentation: true
+mixup: 0.0
+copy_paste: 0.0
+
+# 保存配置
+save_dir: runs/train
+save_period: 10
+
+# 硬件配置
+device: auto # auto/cpu/cuda/mps
+workers: 8

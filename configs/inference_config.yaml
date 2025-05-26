@@ -1,0 +1,21 @@
+# 火点检测系统 - 推理配置文件
+# 模型配置
+model_path: models/fire_detection.onnx
+model_format: onnx # onnx/pytorch/tensorrt
+input_size: 640
+
+# 推理参数
+confidence_threshold: 0.25
+iou_threshold: 0.45
+max_detections: 1000
+
+# 硬件配置
+device: auto
+backend: auto # auto/onnxruntime/tensorrt/openvino
+
+# 输出配置
+save_results: true
+save_dir: runs/inference
+show_labels: true
+show_confidence: true
+line_thickness: 3

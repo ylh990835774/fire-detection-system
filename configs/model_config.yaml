@@ -1,0 +1,15 @@
+# 火点检测系统 - 模型配置文件
+# 基础配置
+architecture: yolov8
+variant: n # n/s/m/l/x
+num_classes: 1
+
+# 网络结构
+depth_multiple: 0.33
+width_multiple: 0.25
+max_channels: 1024
+
+# 损失函数配置
+box_loss_gain: 0.05
+cls_loss_gain: 0.5
+dfl_loss_gain: 1.5
