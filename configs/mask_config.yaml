@@ -1,0 +1,81 @@
+# 火点检测系统 - 掩码配置文件
+# 三角形区域排除配置
+
+# 全局配置
+default_coordinate_type: pixel # pixel 或 normalized
+default_mask_type: exclude # exclude 或 include
+processing_mode: hybrid # preprocess, postprocess, hybrid
+
+# 可视化配置
+visualization:
+  show_masks: true
+  mask_alpha: 0.3 # 掩码透明度
+  mask_color: [255, 0, 0] # 掩码颜色 (R, G, B)
+  line_thickness: 2 # 边框线条粗细
+
+# 三角形掩码定义
+triangular_masks:
+  # 示例排除区域 1 - 左上角三角形
+  - vertices:
+      - [50, 50] # 顶点1 (x, y)
+      - [200, 50] # 顶点2 (x, y)
+      - [125, 150] # 顶点3 (x, y)
+    name: "left_corner_exclude"
+    description: "左上角排除区域"
+    enabled: false # 是否启用该掩码
+    coordinate_type: pixel # 坐标类型
+    mask_type: exclude # 掩码类型
+    padding: 5 # 扩展边距（像素）
+
+  # 示例排除区域 2 - 右下角三角形
+  - vertices:
+      - [500, 400] # 顶点1
+      - [640, 400] # 顶点2
+      - [570, 480] # 顶点3
+    name: "right_corner_exclude"
+    description: "右下角排除区域"
+    enabled: false
+    coordinate_type: pixel
+    mask_type: exclude
+    padding: 0
+
+  # 示例归一化坐标掩码
+  - vertices:
+      - [0.1, 0.1] # 顶点1 (归一化坐标 0-1)
+      - [0.3, 0.1] # 顶点2
+      - [0.2, 0.25] # 顶点3
+    name: "normalized_exclude"
+    description: "归一化坐标排除区域"
+    enabled: false
+    coordinate_type: normalized
+    mask_type: exclude
+    padding: 0
+
+  # 示例包含区域 - 仅在此区域内检测
+  - vertices:
+      - [100, 100] # 顶点1
+      - [540, 100] # 顶点2
+      - [320, 380] # 顶点3
+    name: "detection_zone"
+    description: "重点检测区域"
+    enabled: false
+    coordinate_type: pixel
+    mask_type: include
+    padding: 0
+# 使用说明:
+# 1. 坐标类型:
+#    - pixel: 像素坐标，直接指定图像上的像素位置
+#    - normalized: 归一化坐标(0-1)，会自动适配不同分辨率图像
+#
+# 2. 掩码类型:
+#    - exclude: 排除区域，不在该区域内进行检测
+#    - include: 包含区域，仅在该区域内进行检测
+#
+# 3. 处理模式:
+#    - preprocess: 预处理阶段应用掩码（推荐）
+#    - postprocess: 后处理阶段过滤结果
+#    - hybrid: 混合模式，预处理+后处理双重过滤
+#
+# 4. padding: 扩展边距，正值扩大掩码区域，负值缩小掩码区域
+#
+# 5. enabled: 控制是否启用该掩码，方便调试和切换
